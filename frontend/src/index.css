@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@source "./App.tsx";
+@source "./components/**/*.{ts,tsx}";
+
+@theme {
+  /* This maps Shadcn's variables to Tailwind v4 colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-indigo-500: #6366f1;
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  /* The Actual Colors */
+  --background: #ffffff;
+  --foreground: #020617;
+  --card: #ffffff;
+  --card-foreground: #020617;
+  --primary: #6366f1; /* Indigo 600 */
+  --primary-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
