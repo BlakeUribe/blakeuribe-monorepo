@@ -97,7 +97,7 @@ export default function LandingPage() {
   <div className="flex flex-col mb-16">
     <div className="flex items-center gap-3 mb-2">
       <span className="text-[10px] font-mono text-emerald-500 font-bold tracking-[0.3em] uppercase">
-        01 // Project Registry
+        Project Registry
       </span>
       <div className="h-[1px] w-12 bg-emerald-500/30"></div>
     </div>
