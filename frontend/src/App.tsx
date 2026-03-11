@@ -1,6 +1,6 @@
 import { Button } from "./components/ui/button"
 import { Card } from "./components/ui/card"
-import { TrendingUp, ExternalLink, Zap, ShieldCheck, Mail, Linkedin, Github, MapPin } from "lucide-react"
+import { TrendingUp, ExternalLink, Zap, ShieldCheck, Mail, Linkedin, Github, MapPin, Activity } from "lucide-react"
 
 const UPTICK_URL = "https://uptick-analytics.com"
 
@@ -92,32 +92,31 @@ export default function LandingPage() {
       </section>
 
       {/* Projects Section - Removed the nested section tag for cleaner padding */}
-<main id="projects" className="max-w-7xl mx-auto px-6 py-24 border-t border-slate-200 dark:border-slate-900">
-  {/* Section Header */}
-  <div className="flex flex-col mb-16">
-    <div className="flex items-center gap-3 mb-2">
-      <span className="text-[10px] font-mono text-emerald-500 font-bold tracking-[0.3em] uppercase">
-        Project Registry
-      </span>
-      <div className="h-[1px] w-12 bg-emerald-500/30"></div>
-    </div>
-    <h2 className="text-4xl font-black tracking-tighter uppercase italic">
-      Selected <span className="text-emerald-500">Deployments</span>
-    </h2>
-    <p className="text-slate-500 text-sm mt-2 max-w-sm font-medium">
-      A collection of quantitative tools and cloud-native financial architectures.
-    </p>
-  </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <main id="projects" className="max-w-7xl mx-auto px-6 py-24 border-t border-slate-200 dark:border-slate-900">
+        {/* Section Header */}
+        <div className="flex flex-col mb-16">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-[10px] font-mono text-emerald-500 font-bold tracking-[0.3em] uppercase">
+              Project Registry
+            </span>
+            <div className="h-[1px] w-12 bg-emerald-500/30"></div>
+          </div>
+          <h2 className="text-4xl font-black tracking-tighter uppercase italic">
+            Active <span className="text-emerald-500">Deployments</span>
+          </h2>
+          <p className="text-slate-500 text-sm mt-2 max-w-sm font-medium">
+            A collection of quantitative tools and cloud-native financial architectures.
+          </p>
+        </div>
 
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
           {/* Left Column: Project Identity */}
-          <div className="lg:col-span-4 flex flex-col justify-between py-2">
+          <div className="lg:col-span-4 flex flex-col justify-between py-2 lg:sticky lg:top-10 lg:h-fit ">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <span className="px-2 py-1 rounded bg-emerald-500/10 text-emerald-500 text-[10px] font-mono font-bold uppercase tracking-widest">
-                  Active Project
-                </span>
               </div>
+              
               <h3 className="text-5xl font-black tracking-tighter mb-6 italic uppercase leading-none">
                 Uptick<br />Finance
               </h3>
@@ -141,37 +140,69 @@ export default function LandingPage() {
           </div>
 
           {/* Right Column: Feature Bento Grid */}
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card className="md:col-span-2 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 overflow-hidden group shadow-xl">
-              <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
-                <div className="flex gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-slate-300" />
-                  <div className="w-2 h-2 rounded-full bg-slate-300" />
-                  <div className="w-2 h-2 rounded-full bg-slate-300" />
+          <div className="lg:col-start-6 lg:col-span-7 flex flex-col gap-12">
+
+            {[
+          {
+    src: "/uptick_demo_1.png",
+    label: "Backtesting Engine",
+    stat: "100k+ Simulations",
+    desc: "Comprehensive historical stress-testing and performance validation.",
+    icon: <TrendingUp size={20} className="text-emerald-500" />,
+    color: "bg-emerald-500/10"
+  },
+  {
+    src: "/uptick_demo_2.png",
+    label: "Asset Intelligence",
+    stat: "500+ Deep-Data Assets",
+    desc: "Quantitative pricing history and KPIs with expanding coverage.",
+    icon: <ShieldCheck size={20} className="text-blue-500" />,
+    color: "bg-blue-500/10"
+  },
+  {
+    src: "/uptick_demo_3.png",
+    label: "Efficient Frontier",
+    stat: "Risk-Reward Optimization",
+    desc: "Mathematically derived optimal tradeoffs for any asset allocation.",
+    icon: <Activity size={20} className="text-purple-500" />,
+    color: "bg-purple-500/10"
+  }
+            ].map((item, idx) => (
+              <Card key={idx} className="flex flex-col bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-lg overflow-hidden border-t-4 border-t-slate-100 dark:border-t-slate-800">
+                {/* Header / Tab Style */}
+                <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 flex justify-between items-center">
+                  <span className="text-[9px] font-mono text-slate-400 uppercase tracking-tighter">{item.label}</span>
                 </div>
-                <span className="text-[10px] font-mono text-slate-400">uptick-analytics.com</span>
-              </div>
-              <div className="relative h-[350px] overflow-hidden bg-slate-100 dark:bg-black">
-                <img src="/uptick_demo.png" alt="Uptick Dashboard" className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-            </Card>
 
-            <Card className="bg-emerald-600 p-8 flex flex-col justify-between text-white border-none shadow-lg shadow-emerald-500/20">
-              <TrendingUp size={32} className="text-emerald-200" />
-              <div>
-                <h4 className="text-3xl font-bold mb-1">100,000+</h4>
-                <p className="text-emerald-100 text-[10px] uppercase tracking-widest font-bold">Simulations</p>
-              </div>
-            </Card>
+                {/* Scaled Image Section */}
+                <div className="relative aspect-video bg-slate-100 dark:bg-black p-2">
+                  <div className="w-full h-full overflow-hidden rounded-sm border border-slate-200/50 dark:border-slate-700/50">
+                    <img
+                      src={item.src}
+                      alt={item.label}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
 
-            <Card className="bg-slate-950 p-8 flex flex-col justify-between text-white border-none">
-              <ShieldCheck size={32} className="text-emerald-500" />
-              <div>
-                <h4 className="text-2xl font-bold mb-1">Optimizer</h4>
-                <p className="text-slate-400 text-xs">Quadratic programming for asset allocation.</p>
-              </div>
-            </Card>
+                {/* Stats/Details Section */}
+                <div className="p-5 flex-grow flex flex-col justify-between">
+                  <div className="flex items-start gap-4">
+                    <div className={`p-2.5 rounded-xl ${item.color}`}>
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                        {item.stat}
+                      </h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </main>
